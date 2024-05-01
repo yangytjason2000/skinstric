@@ -15,6 +15,12 @@ const config: Config = {
       letterSpacing: {
         'very-tight': '-0.07em'
       },
+      transitionTimingFunction: {
+        'custom': 'cubic-bezier(.08,.5,.44,.96)',
+      },
+      rotate: {
+        '135': '135deg',
+      }
     },
   },
   plugins: [],

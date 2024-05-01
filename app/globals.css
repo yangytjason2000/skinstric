@@ -37,3 +37,7 @@
   font-weight: 600;
   font-style: normal;
 }
+
+input::placeholder{
+  text-align: center;
+}
