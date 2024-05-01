@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('/fonts/Fonts/Roobert-Regular.woff2') format('woff2'),
+       url('/fonts/Fonts/Roobert-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roobert';
+  src: url('/fonts/Fonts/Roobert-SemiBold.woff2') format('woff2'),
+       url('/fonts/Fonts/Roobert-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RoobertTRIAL';
+  src: url('/fonts/Fonts/RoobertTRIAL-Regular.woff2') format('woff2'),
+       url('/fonts/Fonts/RoobertTRIAL-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RoobertTRIAL';
+  src: url('/fonts/Fonts/RoobertTRIAL-SemiBold.woff2') format('woff2'),
+       url('/fonts/Fonts/RoobertTRIAL-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
