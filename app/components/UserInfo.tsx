@@ -41,7 +41,6 @@ const UserInfo: FC<InfoFormProps> = ({
 			<div className="flex flex-col flex-grow justify-center items-center">
 				<div className={questionIndex == 0 ? "" : "hidden"}>
 					<InfoForm
-						key = {0}
 						question={questions[0].question}
 						inputValue={name}
 						placeholder={questions[0].placeholder}

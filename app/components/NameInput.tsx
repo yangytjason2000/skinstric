@@ -22,6 +22,7 @@ const NameInput: FC<NameInputProps> = ({
 			onFocus={onInputFocus}
 			onBlur={onInputBlur}
 			onChange={(e) => onInputChange(e.target.value)}
+            autoComplete="on"
 			className={`bg-transparent  
               w-[420px]
               tracking-very-tight 
