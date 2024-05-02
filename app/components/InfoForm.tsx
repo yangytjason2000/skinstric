@@ -2,10 +2,10 @@
 
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef, useState } from "react";
 import NameInput from "./NameInput";
-import RotatingDiamond from "./RotatingDiamond";
 import PlaceInput from "./PlaceInput";
+import RotatingDiamond from "./RotatingDiamond";
 
 interface InfoFormProps {
 	question: string;
@@ -24,7 +24,8 @@ const InfoForm: FC<InfoFormProps> = ({
 	onInputChange,
 	onSubmit,
 }) => {
-    const [formHintText, setFormHintText] = useState<string>("CLICK TO TYPE");
+	console.log(question);
+    const [formHintText, setFormHintText] = useState<string>(hintText);
 	const [label, setLabel] = useState<string>(question);
 	const [formPlaceholder, setFormPlaceHolder] = useState<string>("");
 	const labelRef = useRef(null);
@@ -70,10 +71,10 @@ const InfoForm: FC<InfoFormProps> = ({
 					onSubmit();
 				}}
 			>
-				<div className="relative">
+				<div className="relative flex justify-center items-center">
 					<label
 						ref={labelRef}
-						className={`absolute left-0 top-0 
+						className={`absolute pb-2 
 								text-[#1A1B1C] text-6xl 
 								pointer-events-none 
 								tracking-very-tight whitespace-nowrap text-center`}

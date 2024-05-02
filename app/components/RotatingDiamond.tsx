@@ -26,23 +26,23 @@ const RotatingDiamond = () => {
 			<span
                 ref = {diamond1}
 				className={`absolute w-[426px] h-[426px] rotate-45
-            flex justify-center items-center 
-            border-x border-y border-dotted border-[#A0A4AB] 
-            group-hover:scale-150 duration-500 ease-custom`}
+                    flex justify-center items-center 
+                    border-x border-y border-dotted border-[#A0A4AB] 
+                    group-hover:scale-150 duration-500 ease-custom`}
 			></span>
 			<span
                 ref = {diamond2}
 				className={`absolute w-[482px] h-[482px] rotate-45
-            flex justify-center items-center 
-            border-x border-y border-dotted border-[#A0A4AB] 
-            group-hover:scale-150 duration-500 ease-custom`}
+                    flex justify-center items-center 
+                    border-x border-y border-dotted border-[#A0A4AB] 
+                    group-hover:scale-150 duration-500 ease-custom`}
 			></span>
             <span
                 ref = {diamond3}
 				className={`absolute w-[539px] h-[539px] rotate-45
-            flex justify-center items-center 
-            border-x border-y border-dotted border-[#A0A4AB] 
-            group-hover:scale-150 duration-500 ease-custom`}
+                    flex justify-center items-center 
+                    border-x border-y border-dotted border-[#A0A4AB] 
+                    group-hover:scale-150 duration-500 ease-custom`}
 			></span>
 		</>
 	);

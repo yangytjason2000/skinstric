@@ -20,6 +20,9 @@ const config: Config = {
       },
       rotate: {
         '135': '135deg',
+      },
+      scale: {
+        '80': '0.8',
       }
     },
   },

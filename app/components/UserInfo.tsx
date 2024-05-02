@@ -3,6 +3,8 @@
 import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import InfoForm from "./InfoForm";
+import BackButton from "./Buttons/BackButton";
+import ProceedButton from "./Buttons/ProceedButton";
 
 interface InfoFormProps {
 	questions: any[];
@@ -39,9 +41,10 @@ const UserInfo: FC<InfoFormProps> = ({
 			<div className="flex flex-col flex-grow justify-center items-center">
 				<div className={questionIndex == 0 ? "" : "hidden"}>
 					<InfoForm
-						question={questions[questionIndex].question}
+						key = {0}
+						question={questions[0].question}
 						inputValue={name}
-						placeholder={questions[questionIndex].placeholder}
+						placeholder={questions[0].placeholder}
 						hintText="CLICK TO TYPE"
 						onInputChange={setName}
 						onSubmit={onClickProceedButton}
@@ -49,9 +52,9 @@ const UserInfo: FC<InfoFormProps> = ({
 				</div>
 				<div className={questionIndex == 1 ? "" : "hidden"}>
 					<InfoForm
-						question={questions[questionIndex].question}
+						question={questions[1].question}
 						inputValue={location}
-						placeholder={questions[questionIndex].placeholder}
+						placeholder={questions[1].placeholder}
 						hintText="CLICK TO TYPE"
 						onInputChange={setLocation}
 						onSubmit={onClickProceedButton}
@@ -59,41 +62,9 @@ const UserInfo: FC<InfoFormProps> = ({
 				</div>
 			</div>
 			<div className="flex w-full justify-between items-center">
-				<button
-					className="flex justify-center items-center gap-4 group"
-					onClick={onClickBackButton}
-				>
-					<span
-						className={`w-[31px] h-[31px] rotate-45 
-						flex justify-center items-center 
-						border-x border-y border-[#1A1B1C] 
-						group-hover:scale-150 duration-500 ease-custom`}
-					>
-						<span className="-rotate-45 pr-1">
-							<img src="icons/Polygon.svg" alt="back button icon" />
-						</span>
-					</span>
-					<span className="font-roobert-trial font-semibold text-sm text-[#1A1B1C] group-hover:translate-x-4 duration-500 ease-custom uppercase">
-						Back
-					</span>
-				</button>
+				<BackButton onClick={onClickBackButton}/>
 				{((questionIndex === 0 && name !== "") || (questionIndex === 1 && location !== "")) && (
-					<button
-						className="flex justify-center items-center gap-4 group"
-						onClick={onClickProceedButton}
-					>
-						<span className="font-roobert-trial font-semibold text-sm text-[#1A1B1C] group-hover:-translate-x-4 duration-500 ease-custom uppercase">
-							Proceed
-						</span>
-						<span className={`w-[31px] h-[31px] rotate-45 
-							flex justify-center items-center 
-							border-x border-y border-[#1A1B1C]
-							group-hover:scale-150 duration-500 ease-custom`}>
-							<span className="rotate-135 pr-1">
-								<img src="icons/Polygon.svg" alt="back button icon" />
-							</span>
-						</span>
-					</button>
+					<ProceedButton onClick={onClickProceedButton} />
 				)}
 			</div>
 		</div>
