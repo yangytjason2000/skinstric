@@ -26,18 +26,20 @@ const BackToHomeToaster: FC<BackToHomeToasterProps> = ({ id, onConfirm}) => {
     })
 
     const { contextSafe } = useGSAP({ scope: toasterRef });
-	const collapse = contextSafe(() => {
+	const collapse = contextSafe((completionCallback : () => void) => {
 		if (toasterRef.current) {
             //Collapse toast animation
-            gsap.fromTo(toasterRef.current,
-                { width: '432px', height: '136px' },
-                { width: '432px', height: '1px', duration: 0.5 }
-            );
-
-            gsap.fromTo(toasterRef.current,
-                { width: '432px' },
-                { width: '0px', duration: 0.5, delay: 0.4 }
-            );
+            gsap.to(toasterRef.current, {
+                height: '1px',
+                duration: 0.5,
+                onComplete: () => {
+                    gsap.to(toasterRef.current, {
+                        width: '0px',
+                        duration: 0.5,
+                        onComplete: completionCallback
+                    });
+                }
+            });
         }
 	});
 	return (
@@ -53,11 +55,11 @@ const BackToHomeToaster: FC<BackToHomeToasterProps> = ({ id, onConfirm}) => {
             <hr className='border-[#FCFCFC]'></hr>
             <div className='flex justify-end gap-2 mr-2 font-roobert-trial font-semibold text-base'>
                 <button className='py-2 px-4 text-opacity-80 text-[#FCFCFC]'
-                    onClick={() => {collapse(); toast.remove(id); onConfirm()}}>
+                    onClick={() => {toast.remove(id); onConfirm()}}>
                     Leave
                 </button>
                 <button className='py-2 px-4 text-[#FCFCFC]' 
-                    onClick={() => {collapse(); toast.dismiss(id)}}>
+                    onClick={() => {collapse(()=>toast.remove(id));}}>
                     Close
                 </button>
             </div>

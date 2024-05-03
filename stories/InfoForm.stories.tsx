@@ -15,5 +15,7 @@ export const Base: Story = {
         question: "question1",
         placeholder: "",
         hintText: "click on it",
+		onInputChange: () => console.log("testing"),
+		onSubmit: () => console.log("do nothing"),
 	},
 };

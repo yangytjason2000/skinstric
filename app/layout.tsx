@@ -14,13 +14,13 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body>
+			<body className="bg-[#FCFCFC]">
 				<Toaster
-          position="top-left"
-          containerStyle={{
-            top: "3em",
-            left: "2em",
-          }}
+					position="top-left"
+					containerStyle={{
+						top: "3em",
+						left: "2em",
+					}}
 				/>
 				{children}
 			</body>

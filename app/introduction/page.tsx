@@ -7,13 +7,15 @@ const page = () => {
 		{ question: "Where are you from?", placeholder: "Enter a location" },
 	];
 	return (
-		<div className="flex flex-col h-screen bg-[#fcfcfc] px-8 pb-9">
-			<Header />
-			<h1 className="font-roobert-trial font-semibold text-sm text-[#1A1B1C]">
-				TO START ANALYSIS
-			</h1>
-			<UserInfo questions={questions}/>
-		</div>
+		<div className="flex flex-col h-screen">
+            <Header />
+            <div className="flex flex-col flex-grow bg-[#fcfcfc] px-8 pb-9">
+                <h1 className="font-roobert-trial font-semibold text-sm text-[#1A1B1C] mt-5">
+                    TO START ANALYSIS
+                </h1>
+                <UserInfo questions={questions}/>
+            </div>
+        </div>
 	);
 };
 
