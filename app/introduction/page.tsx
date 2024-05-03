@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import UserInfo from "../components/UserInfo";
 
-const page = async () => {
+const page = () => {
 	const questions = [
 		{ question: "Introduce yourself", placeholder: "" },
 		{ question: "Where are you from?", placeholder: "Enter a location" },

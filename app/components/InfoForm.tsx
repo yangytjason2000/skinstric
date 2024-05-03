@@ -5,7 +5,6 @@ import { gsap } from "gsap";
 import { FC, useRef, useState } from "react";
 import NameInput from "./NameInput";
 import PlaceInput from "./PlaceInput";
-import RotatingDiamond from "./RotatingDiamond";
 
 interface InfoFormProps {
 	question: string;
@@ -24,7 +23,6 @@ const InfoForm: FC<InfoFormProps> = ({
 	onInputChange,
 	onSubmit,
 }) => {
-	console.log(question);
     const [formHintText, setFormHintText] = useState<string>(hintText);
 	const [label, setLabel] = useState<string>(question);
 	const [formPlaceholder, setFormPlaceHolder] = useState<string>("");
@@ -61,7 +59,6 @@ const InfoForm: FC<InfoFormProps> = ({
 
 	return (
 		<div className="relative flex flex-col justify-center items-center">
-			<RotatingDiamond />
 			<div className="font-roobert-trial font-normal text-sm text-[#1A1B1C] text-opacity-40 h-6 text-center">
 				{formHintText}
 			</div>

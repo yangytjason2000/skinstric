@@ -7,7 +7,7 @@ const RotatingDiamond = () => {
     const diamond2 = useRef(null);
     const diamond3 = useRef(null);
     useGSAP(() => {
-        const rotationDuration = [30, 25, 20];
+        const rotationDuration = [60, 50, 40];
 
         [diamond1.current, diamond2.current, diamond3.current].forEach((diamond, idx) => {
             gsap.fromTo(diamond, 

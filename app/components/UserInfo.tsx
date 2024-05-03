@@ -5,6 +5,9 @@ import { useRouter } from "next/navigation";
 import InfoForm from "./InfoForm";
 import BackButton from "./Buttons/BackButton";
 import ProceedButton from "./Buttons/ProceedButton";
+import RotatingDiamond from "./RotatingDiamond";
+import toast from "react-hot-toast";
+import BackToHomeToaster from "./BackToHomeToaster";
 
 interface InfoFormProps {
 	questions: any[];
@@ -20,7 +23,11 @@ const UserInfo: FC<InfoFormProps> = ({
 
 	const onClickBackButton = () => {
 		if (questionIndex === 0) {
-			router.push("/");
+			toast.custom(<BackToHomeToaster id={'back-to-home-toast'} onConfirm={()=>router.push("/")}/>, {
+				id: 'back-to-home-toast',
+				duration: Infinity
+			});
+			// router.push("/");
 		}
 		else if (questionIndex === 1) {
 			setQuestionIndex(0);
@@ -32,13 +39,13 @@ const UserInfo: FC<InfoFormProps> = ({
 			setQuestionIndex((questionIndex) => questionIndex + 1);
 		}
 		else if (questionIndex === 1) {
-			console.log("haha")
 		}
 	};
 
 	return (
 		<div className="h-full flex flex-col justify-between items-center">
 			<div className="flex flex-col flex-grow justify-center items-center">
+				<RotatingDiamond />
 				<div className={questionIndex == 0 ? "" : "hidden"}>
 					<InfoForm
 						question={questions[0].question}
