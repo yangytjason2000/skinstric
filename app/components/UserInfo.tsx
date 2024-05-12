@@ -12,7 +12,10 @@ import { UserInfoRequest } from "../lib/validators/UserInfoValidator";
 import axios from "axios";
 
 interface InfoFormProps {
-	questions: any[];
+	questions: {
+		question: string;
+		placeholder: string;
+	}[];
 }
 
 const UserInfo: FC<InfoFormProps> = ({ questions }) => {
