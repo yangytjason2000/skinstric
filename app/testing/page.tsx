@@ -7,7 +7,7 @@ const page = () => {
 		<div className="relative flex flex-col h-screen">
             <Header />
             <div className="flex flex-col flex-grow bg-[#fcfcfc] px-8 pb-9">
-                <h1 className="font-roobert-trial font-semibold text-sm text-[#1A1B1C] mt-5">
+                <h1 className="font-roobert-trial font-semibold text-base text-[#1A1B1C] mt-5">
                     TO START ANALYSIS
                 </h1>
                 <ImageUploadPanel/>
