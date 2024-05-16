@@ -1,8 +1,15 @@
+"use client"
+
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 
-const RotatingDiamond = () => {
+interface RotatingDiamondProps {
+    widths: number[];
+}
+const RotatingDiamond: FC<RotatingDiamondProps> = ({
+    widths
+}) => {
     const diamond1 = useRef(null);
     const diamond2 = useRef(null);
     const diamond3 = useRef(null);
@@ -25,19 +32,31 @@ const RotatingDiamond = () => {
 		<>
 			<span
                 ref = {diamond1}
-				className={`absolute w-[426px] h-[426px] rotate-45
+                style={{
+                    width: `${widths[0]}px`,
+                    height: `${widths[0]}px`
+                }}
+				className={`absolute rotate-45 pointer-events-none
                     flex justify-center items-center 
                     border-2 border-dotted border-[#A0A4AB]`}
 			></span>
 			<span
                 ref = {diamond2}
-				className={`absolute w-[482px] h-[482px] rotate-45
+                style={{
+                    width: `${widths[1]}px`,
+                    height: `${widths[1]}px`
+                }}
+				className={`absolute rotate-45 pointer-events-none
                     flex justify-center items-center 
                     border-2 border-dotted border-[#A0A4AB] opacity-60`}
 			></span>
             <span
                 ref = {diamond3}
-				className={`absolute w-[539px] h-[539px] rotate-45
+                style={{
+                    width: `${widths[2]}px`,
+                    height: `${widths[2]}px`
+                }}
+				className={`absolute rotate-45 pointer-events-none
                     flex justify-center items-center 
                     border-2 border-dotted border-[#A0A4AB] opacity-30`}
 			></span>

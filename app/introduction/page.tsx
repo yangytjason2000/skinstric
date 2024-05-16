@@ -1,5 +1,5 @@
-import Header from "../components/Header";
-import UserInfo from "../components/UserInfo";
+import Header from "../components/Introduction/Header";
+import UserInfo from "../components/Introduction/UserInfo";
 
 const page = () => {
 	const questions = [

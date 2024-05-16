@@ -3,8 +3,8 @@
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { FC, useRef, useState } from "react";
-import NameInput from "./Inputs/NameInput";
-import PlaceInput from "./Inputs/PlaceInput";
+import NameInput from "../Inputs/NameInput";
+import PlaceInput from "../Inputs/PlaceInput";
 
 interface InfoFormProps {
 	question: string;

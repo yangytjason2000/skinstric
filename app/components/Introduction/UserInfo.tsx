@@ -3,12 +3,12 @@
 import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import InfoForm from "./InfoForm";
-import BackButton from "./Buttons/BackButton";
-import ProceedButton from "./Buttons/ProceedButton";
-import RotatingDiamond from "./RotatingDiamond";
+import BackButton from "../Buttons/BackButton";
+import ProceedButton from "../Buttons/ProceedButton";
+import RotatingDiamond from "../RotatingDiamond";
 import toast from "react-hot-toast";
-import BackToHomeToaster from "./Toasters/BackToHomeToaster";
-import { UserInfoRequest } from "../lib/validators/UserInfoValidator";
+import BackToHomeToaster from "../Toasters/BackToHomeToaster";
+import { UserInfoRequest } from "../../lib/validators/UserInfoValidator";
 import axios from "axios";
 
 interface InfoFormProps {
@@ -85,7 +85,7 @@ const UserInfo: FC<InfoFormProps> = ({ questions }) => {
 	return (
 		<div className="h-full flex flex-col justify-between items-center">
 			<div className="flex flex-col flex-grow justify-center items-center">
-				<RotatingDiamond />
+				<RotatingDiamond widths={[426, 482, 539]}/>
 				<div className={questionIndex == 0 ? "" : "hidden"}>
 					<InfoForm
 						question={questions[0].question}

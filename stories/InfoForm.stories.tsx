@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import InfoForm from "@/app/components/InfoForm";
+import InfoForm from "@/app/components/Introduction/InfoForm";
 
 const meta: Meta<typeof InfoForm> = {
 	component: InfoForm,
