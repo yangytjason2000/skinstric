@@ -11,7 +11,7 @@ const ImageUploadPanel = () => {
 		<div className="flex justify-around items-center mt-auto mb-auto">
 			{uploadPanelVisibility && (
                 <div className="absolute inset-0 flex items-center justify-center z-50">
-                    <UploadPanel onConfirm={()=>setUploadPanelVisibility(false)}/>
+                    <UploadPanel onLeave={()=>setUploadPanelVisibility(false)}/>
                 </div>
             )}
 			<TakePictureButton />

@@ -37,3 +37,15 @@
   font-weight: 600;
   font-style: normal;
 }
+
+.upload-instruction-list-items::before {
+  content: "";
+  display: inline-block;
+  border: 1px solid;
+  flex-shrink: 0;
+  height: 8px;
+  margin-right: 8px;
+  top: -1px;
+  transform: rotate(45deg);
+  width: 8px;
+}
