@@ -1,6 +1,6 @@
 const Header = () => {
 	return (
-		<header className="fixed w-full flex justify-between h-16 bg-[#fcfcfc] px-8">
+		<header className="fixed w-full flex justify-between h-16 px-8">
 			<div className="flex items-center">
 				<a
 					href="/"

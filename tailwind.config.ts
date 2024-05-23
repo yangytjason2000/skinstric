@@ -13,6 +13,9 @@ const config: Config = {
         'roobert': ['Roobert', 'sans-serif'],
         'roobert-trial': ['RoobertTRIAL', 'sans-serif'],
       },
+      screens: {
+        'max-lg': { 'max': '1366px' },
+      },
       letterSpacing: {
         'very-tight': '-0.07em'
       },

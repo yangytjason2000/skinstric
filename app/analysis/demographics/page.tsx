@@ -33,9 +33,9 @@ const page = () => {
 		},
 	};
 	return (
-		<div className="relative flex flex-col h-screen">
+		<div className="relative flex flex-col h-screen bg-[#fcfcfc]">
 			<Header />
-			<div className="flex flex-col flex-grow bg-[#fcfcfc] px-8 pb-9 mt-16">
+			<div className="flex flex-col flex-grow px-8 pb-9 mt-16">
 				<div className="flex flex-col">
 					<h1 className="uppercase font-roobert-trial text-7xl text-[#1A1B1C]">
 						demographics

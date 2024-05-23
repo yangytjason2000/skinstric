@@ -30,47 +30,66 @@ interface DemographicsProps {
 }
 
 const Demographics: FC<DemographicsProps> = ({ jsonData }) => {
-	const [races, setRaces] = useState<[string, number][]>([]);
-	const [ages, setAges] = useState<[string, number][]>([]);
-	const [genders, setGenders] = useState<[string, number][]>([]);
-	const [selectedRace, setSelectedRace] = useState<string>("");
-	const [selectedAge, setSelectedAge] = useState<string>("");
-	const [selectedGender, setSelectedGender] = useState<string>("");
+	const [demographicData, setDemographicData] = useState<
+		[Array<[string, number]>, Array<[string, number]>, Array<[string, number]>]
+	>([[], [], []]);
+	const [selectedDemographicData, setSelectedDemographicData] = useState<
+		Array<[string, number]>
+	>([]);
 	const [selectedCategoryIndex, setSelectedCategoryIndex] = useState<number>(0);
 
 	useEffect(() => {
 		if (jsonData && jsonData.data) {
 			const { race, age, gender } = jsonData.data;
-			const sortedracesEntries = Object.entries(race).sort(
-				([, a], [, b]) => b - a
-			);
-			const sortedAgesEntries = Object.entries(age).sort(
-				([, a], [, b]) => b - a
-			);
-			const sortedGendersEntries = Object.entries(gender).sort(
-				([, a], [, b]) => b - a
-			);
-			setRaces(sortedracesEntries);
-			setAges(sortedAgesEntries);
-			setGenders(sortedGendersEntries);
-			setSelectedRace(sortedracesEntries[0][0]);
-			setSelectedAge(sortedAgesEntries[0][0]);
-			setSelectedGender(sortedGendersEntries[0][0]);
+			const sortedracesEntries = Object.entries(race)
+				.sort(([, a], [, b]) => b - a)
+				.map(
+					([key, value]) =>
+						[key, parseFloat(value.toFixed(4))] as [string, number]
+				);
+			const sortedAgesEntries = Object.entries(age)
+				.sort(([, a], [, b]) => b - a)
+				.map(
+					([key, value]) =>
+						[key, parseFloat(value.toFixed(4))] as [string, number]
+				);
+			const sortedGendersEntries = Object.entries(gender)
+				.sort(([, a], [, b]) => b - a)
+				.map(
+					([key, value]) =>
+						[key, parseFloat(value.toFixed(4))] as [string, number]
+				);
+			setDemographicData([
+				sortedracesEntries,
+				sortedAgesEntries,
+				sortedGendersEntries,
+			]);
+			setSelectedDemographicData([
+				sortedracesEntries[0],
+				sortedAgesEntries[0],
+				sortedGendersEntries[0],
+			]);
 		}
 	}, [jsonData]);
+
+	if (selectedDemographicData.length === 0) {
+		return null;
+	}
 
 	return (
 		<div className="mt-[120px] flex">
 			<Categories
 				categoryData={[
-					{value: selectedRace, title: "race"},
-					{value: selectedAge, title: "age"},
-					{value: selectedGender, title: "gender"},
+					{ value: selectedDemographicData[0][0], title: "race" },
+					{ value: selectedDemographicData[1][0], title: "age" },
+					{ value: selectedDemographicData[2][0], title: "gender" },
 				]}
-                onClick={setSelectedCategoryIndex}
-                selectedCategoryIndex = {selectedCategoryIndex}
+				onClick={setSelectedCategoryIndex}
+				selectedCategoryIndex={selectedCategoryIndex}
 			/>
-            <DemographicDetail/>
+			<DemographicDetail
+				percentage={selectedDemographicData[selectedCategoryIndex][1] * 100}
+			/>
 		</div>
 	);
 };

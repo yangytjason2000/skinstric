@@ -4,9 +4,9 @@ import PreferredWay from "../components/testing/PreferredWay";
 
 const page = () => {
 	return (
-		<div className="relative flex flex-col h-screen">
+		<div className="relative flex flex-col h-screen bg-[#fcfcfc]">
             <Header />
-            <div className="flex flex-col flex-grow bg-[#fcfcfc] px-8 pb-9 mt-16">
+            <div className="flex flex-col flex-grow px-8 pb-9 mt-16">
                 <h1 className="font-roobert-trial font-semibold text-base text-[#1A1B1C] mt-5">
                     TO START ANALYSIS
                 </h1>
