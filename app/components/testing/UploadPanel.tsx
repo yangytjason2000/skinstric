@@ -9,6 +9,11 @@ interface UploadPanelProps {
 const UploadPanel: FC<UploadPanelProps> = ({ onLeave }) => {
 	const panelRef = useRef<HTMLDivElement>(null);
     const imageUploadRef = useRef<HTMLInputElement>(null);
+	const UploadHints = [
+		{title: "neutral expression", content: "smiling may distort wrinkles"},
+		{title: "frontal pose", content: "take the image from an arm's length away at eye level"},
+		{title: "adequate lightning", content: "avoid harsh downlighting and aim for natural or soft light"}
+	]
 
 	useGSAP(() => {
 		if (panelRef.current) {
@@ -70,24 +75,18 @@ const UploadPanel: FC<UploadPanelProps> = ({ onLeave }) => {
 			</div>
 			<hr className="border-[#FCFCFC]"></hr>
 			<ul className="w-[300px]">
-				<li className="font-roobert-trial text-xs uppercase upload-instruction-list-items ml-2 mt-8">
-					neutral expression
-				</li>
-				<p className="font-roobert-trial text-base lowercase opacity-40 ml-6 mb-8 text-wrap w-auto">
-					smiling may distort wrinkles
-				</p>
-				<li className="font-roobert-trial text-xs uppercase upload-instruction-list-items ml-2 mt-2">
-					frontal pose
-				</li>
-				<p className="font-roobert-trial text-base lowercase opacity-40 ml-6 mb-8 text-wrap w-auto">
-					take the image from an arm's length away at eye level
-				</p>
-				<li className="font-roobert-trial text-xs uppercase upload-instruction-list-items ml-2 mt-2">
-					adequate lightning
-				</li>
-				<p className="font-roobert-trial text-base lowercase opacity-40 ml-6 mb-8 text-wrap">
-					avoid harsh downlighting and aim for natural or soft light
-				</p>
+				{UploadHints.map((hint, index)=> {
+					return (
+						<>
+							<li className="font-roobert-trial text-xs uppercase upload-instruction-list-items ml-2 mt-8" key={index}>
+								{hint.title}
+							</li>
+							<p className="font-roobert-trial text-base lowercase opacity-40 ml-6 mb-8 text-wrap w-auto">
+								{hint.content}
+							</p>
+						</>
+					)
+				})}
 			</ul>
 			<hr className="border-[#FCFCFC]"></hr>
 			<div className="flex justify-end gap-2 mr-2 font-roobert-trial font-semibold text-base">
